@@ -46,7 +46,7 @@
             },
             list: {
                 fr: '<ul><li><b>_ga</b> : Utilisé pour distinguer les utilisateurs (expire au bout de 2 ans)</li><li><b>_gid</b> : Utilisé pour distinguer les utilisateurs (expire au bout de 24 heures)</li><li><b>_gat</b> : Utilisé pour limiter le taux de demande (expire au bout de 1 minute)</li></ul>',
-                en: '<ul><li><b>_ga</b>: Used to distinguish users (expires after 2 years)</li><li><b>_gid</b>: Used to distinguish users. (expires after 24 hours)</li><li><b>_gat</b>: Used to throttle request rate (expires after 1 minute)</li></ul>'
+                en: '<ul><li><b>_ga</b>: Used to distinguish users (expires after 2 years)</li><li><b>_gid</b>: Used to distinguish users (expires after 24 hours)</li><li><b>_gat</b>: Used to throttle request rate (expires after 1 minute)</li></ul>'
             },
             conservation: {
                 fr: 'Nous conservons votre choix pendant <b>' + params.cookie.days + ' jour(s)</b>. Vous pouvez réinitialiser votre consentement en supprimant le cookie <b>' + params.cookie.name + '</b> des données de votre navigateur.',
