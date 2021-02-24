@@ -23,7 +23,7 @@ jQuery plugin to display a consent modal for cookies and to add Google Analytics
 
 ```html
 <script src="jquery.js"></script>
-<script src="jquery.cookieKit.js"></script>
+<script src="jquery.cookiekit.js"></script>
 ```
 
 #### Launch cookieKit plugin with your tracking Google Analytics ID:
