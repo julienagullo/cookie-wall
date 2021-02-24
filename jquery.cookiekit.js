@@ -1,5 +1,5 @@
 /**
- * jQuery cookieKit plug-in 1.0.0
+ * jQuery cookieKit plug-in 1.0
  * Copyright (c) Avantage Digital
  * Licensed under the MIT license
  *
