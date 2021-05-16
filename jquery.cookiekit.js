@@ -1,5 +1,5 @@
 /**
- * jQuery cookieKit plug-in 1.0
+ * jQuery cookieKit plug-in 1.1.0
  * Copyright (c) Avantage Digital
  * Licensed under the MIT license
  *
@@ -21,6 +21,15 @@
                 days: 10,
                 path: '/'
             },
+            website: {
+                name: '',
+                url: '',
+                logo: {
+                    width: '',
+                    align: '',
+                    url: ''
+                }
+            },
             modal: {
                 hrColor: '#b3b3b3',
                 fontColor: '#3c3c3c',
@@ -29,40 +38,44 @@
             button: {
                 acceptColor: '#0a9919',
                 acceptColorHover: '#076212',
-                refuseColor: '#8a0a0a',
-                refuseColorHover: '#550505',
+                refuseColor: '#a40606',
+                refuseColorHover: '#7b0505',
             },
             lang: 'fr'
         }, options);
 
         const content = {
             title: {
-                fr: 'Politique de collecte des données',
-                en: 'Data collection policy'
+                fr: `Politique de collecte des données`,
+                en: `Data collection policy`
             },
             message: {
-                fr: '<b>Des fichiers cookies sont utilisés pour analyser le trafic du site via Google Analytics.</b><br><br>Des informations concernant votre navigation et votre utilisation du site nous sont transmises et seront analysées <b>de façon anonyme</b> pour améliorer nos services.',
-                en: '<b>Cookie files are used to analyze website traffic by Google Analytics.</b><br><br>Information about your browsing and use of the website is sent to us and will be analyzed <b>anonymous</b> to improve services.'
+                fr: `<b>Des fichiers cookies sont utilisés pour analyser le trafic du site ${params.website.url} via Google Analytics.</b><br><br>Des informations concernant votre navigation et votre utilisation du site sont transmises ${params.website.name.length > 0 ? ' à ' + params.website.name : ''} et seront analysées <b>de façon anonyme</b> pour améliorer les services.`,
+                en: `<b>Cookie files are used to analyze ${params.website.url} website traffic by Google Analytics.</b><br><br>Information about your browsing and use of the website is transmitted ${params.website.name.length > 0 ? ' to ' + params.website.name : ''} and will be analyzed <b>anonymously</b> to improve services.`
+            },
+            titleList: {
+                fr: `Liste des cookies`,
+                en: `List of cookies`
             },
             list: {
-                fr: '<ul><li><b>_ga</b> : Utilisé pour distinguer les utilisateurs (expire au bout de 2 ans)</li><li><b>_gid</b> : Utilisé pour distinguer les utilisateurs (expire au bout de 24 heures)</li><li><b>_gat</b> : Utilisé pour limiter le taux de demande (expire au bout de 1 minute)</li></ul>',
-                en: '<ul><li><b>_ga</b>: Used to distinguish users (expires after 2 years)</li><li><b>_gid</b>: Used to distinguish users (expires after 24 hours)</li><li><b>_gat</b>: Used to throttle request rate (expires after 1 minute)</li></ul>'
+                fr: `<ul><li><b>_ga</b> : Utilisé pour distinguer les utilisateurs (expire au bout de 2 ans)</li><li><b>_gid</b> : Utilisé pour distinguer les utilisateurs (expire au bout de 24 heures)</li><li><b>_gat</b> : Utilisé pour limiter le taux de demande (expire au bout de 1 minute)</li></ul>`,
+                en: `<ul><li><b>_ga</b>: Used to distinguish users (expires after 2 years)</li><li><b>_gid</b>: Used to distinguish users (expires after 24 hours)</li><li><b>_gat</b>: Used to limit request rate (expires after 1 minute)</li></ul>`
             },
             conservation: {
-                fr: 'Nous conservons votre choix pendant <b>' + params.cookie.days + ' jour(s)</b>. Vous pouvez réinitialiser votre consentement en supprimant le cookie <b>' + params.cookie.name + '</b> des données de votre navigateur.',
-                en: 'We keep your choice for <b>' + params.cookie.days + '</b> day(s). You can reset your consent by deleting the <b>' + params.cookie.name + '</b> cookie from your browser data.'
+                fr: `Votre consentement est conservé pendant <b>${params.cookie.days}</b> jour${params.cookie.days > 1 ? 's' : ''}. Vous pouvez réinitialiser votre consentement en supprimant le cookie <b>${params.cookie.name}</b> des données de votre navigateur.`,
+                en: `Your consent is kept for <b>${params.cookie.days}</b> day${params.cookie.days > 1 ? 's' : ''}. You can reset your consent by deleting the <b>${params.cookie.name}</b> cookie from your browser data.`
             },
             accepted: {
-                fr: 'Accepter',
-                en: 'Accept'
+                fr: `Accepter`,
+                en: `Accept`
             },
             refused: {
-                fr: 'Non merci',
-                en: 'No thanks'
+                fr: `Non merci`,
+                en: `No thanks`
             }
         };
 
-        var tag = '<script async src="https://www.googletagmanager.com/gtag/js?id=' + params.id + '"></script>' +
+        const tag = '<script async src="https://www.googletagmanager.com/gtag/js?id=' + params.id + '"></script>' +
             '<script>' +
             'window.dataLayer = window.dataLayer || [];' +
             'function gtag(){dataLayer.push(arguments);}' +
@@ -70,40 +83,55 @@
             'gtag(\'config\', \'' + params.id + '\');' +
             '</script>';
 
-        var modal = '' +
+        const logo = params.website.logo.url != '' ? `<div class="logo"><img src="${params.website.logo.url}" alt="Logo"></div>` : '',
+            logoAlign = params.website.logo.align != '' ? params.website.logo.width : 'left',
+            logoWidth = params.website.logo.width != '' ? params.website.logo.width : '0px';
+
+        const modal = '' +
             '<div class="ck-modal">' +
-                '<div class="ck-window">' +
-                    '<div class="ck-content">' +
-                        '<span>' + content.title[params.lang] + '</span>' +
-                        '<hr>' +
-                        '<p>' + content.message[params.lang] + '</p>' +
-                        content.list[params.lang] +
-                        '<p>' + content.conservation[params.lang] + '</p>' +
-                    '</div> ' +
-                    '<div class="ck-choise">' +
-                        '<a class="btn-refuse" href="#">' + content.refused[params.lang] + '</a>' +
-                        '<a class="btn-accept" href="#">' + content.accepted[params.lang] + '</a>' +
-                    '</div> ' +
-                '</div> ' +
+            '<div class="ck-window">' +
+            '<div class="ck-content">' +
+            '<span>' + logo + content.title[params.lang] + '</span>' +
+            '<hr>' +
+            '<p>' + content.message[params.lang] + '</p>' +
+            '<button class="accordion">' + content.titleList[params.lang] + '</button>' +
+            '<div class="panel">' + content.list[params.lang] + '</div>' +
+            '<p>' + content.conservation[params.lang] + '</p>' +
+            '</div> ' +
+            '<div class="ck-choise">' +
+            '<a class="btn-refuse" href="#">' + content.refused[params.lang] + '</a>' +
+            '<a class="btn-accept" href="#">' + content.accepted[params.lang] + '</a>' +
+            '</div> ' +
+            '</div> ' +
             '</div>' +
             '<style>' +
-            '.ck-modal{display:flex;align-items:center;justify-content:center;position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.7);z-index:999;}' +
+            '.ck-modal{display:flex;align-items:center;justify-content:center;position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.7);z-index:999;overflow-y:auto;}' +
             '.ck-window{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;position:absolute;border-radius:5px;background-color:'+ params.modal.backgroundColor +';box-shadow:3px 3px 10px rgba(0,0,0,.3);}' +
             '.ck-content{padding:15px;color:' + params.modal.fontColor + ';}' +
+            `.ck-content .logo{width:100%;text-align:${logoAlign};}` +
+            `.ck-content .logo img{width:${logoWidth};margin:0;}` +
             '.ck-content span{font-weight:500;}' +
             '.ck-content b{font-weight:600;}' +
-            '.ck-content p, li{font-weight:300;}' +
+            '.ck-content ul{margin:0;padding:0 25px 10px;}' +
+            '.ck-content p, li{font-weight:300;margin:1em 0 1.2em;}' +
             '.ck-content hr{height:1px;margin:15px 0;border:0;border-top:1px solid ' + params.modal.hrColor + ';}' +
+            '.ck-content .accordion{background-color:#e2e2e2;color:#444;font-size:1.2em;font-weight:600;cursor:pointer;padding:10px;width:100%;text-align:left;border:none;outline:none;transition:background-color 0.4s ease-in-out;}' +
+            '.ck-content .accordion:after{content:\'\\002B\';color:#777;font-weight:bold;float:right;margin-left:5px;}' +
+            '.ck-content .accordion.active:after{content:\'\\002D\'}' +
+            '.ck-content .accordion.active, .ck-content .accordion:hover{background-color:#d7d7d7;}' +
+            '.ck-content .panel{height:0;padding:0 5px;background-color:transparent;border:1px solid #d7d7d7;visibility:hidden;}' +
             '.ck-choise{display:flex;align-items:stretch;justify-content:center;}' +
             '.btn-refuse, .btn-accept{display:block;width:50%;font-size:1.1em;font-weight:bold;text-transform:uppercase;text-decoration:none;padding:10px 5px;text-align:center;transition:background-color .5s ease;}' +
             '.btn-refuse{color:#fff;background-color:' + params.button.refuseColor + ';border-radius:0 0 0 3px;}' +
             '.btn-refuse:hover, .btn-refuse:focus{color:#fff;background-color:' + params.button.refuseColorHover + ';text-decoration:none;}' +
             '.btn-accept{color:#fff;background-color:' + params.button.acceptColor + ';border-radius:0 0 3px 0;}' +
             '.btn-accept:hover, .btn-accept:focus{color:#fff;background-color:' + params.button.acceptColorHover + ';text-decoration:none;}' +
-            '@media (max-width: 576px) { .ck-modal .ck-window{width:90%;}.ck-content p, li{font-size:1em;}.ck-content span{font-size:1.5em;} }' +
-            '@media (min-width: 576px) { .ck-modal .ck-window{width:70%;}.ck-content p, li{font-size:1.1em;}.ck-content span{font-size:1.6em;} }' +
+            '@media (max-width: 576px) { .ck-modal .ck-window{width:90%;}.ck-content p, li{font-size:1em;}.ck-content span{font-size:1.5em;}.ck-content .logo{display:none;} }' +
+            '@media (min-width: 576px) { .ck-modal .ck-window{width:70%;}.ck-content p, li{font-size:1.1em;}.ck-content span{font-size:1.6em;}.ck-content .logo{display:block;} }' +
             '@media (min-width: 769px) { .ck-modal .ck-window{width:50%;}.ck-content p, li{font-size:1.2em;}.ck-content span{font-size:1.7em;} }' +
             '</style>';
+
+        let h;
 
         function init() {
             if (params.id != '') {
@@ -120,7 +148,27 @@
 
         function displayModal() {
             $('body').prepend(modal);
+            h = $('.ck-modal .panel ul').outerHeight(true);
             $('body').on('mousedown', '.ck-modal .ck-choise a', setChoise);
+            $('body').on('click', '.accordion', function() {
+                this.classList.toggle('active');
+                let panel = $(this).parent().find('.panel');
+                if (panel.css('visibility') === 'visible') {
+                    $(panel).animate({height:0},200, function() {
+                        panel.css('visibility', 'hidden');
+                    });
+                } else {
+                    panel.css('visibility', 'visible');
+                    $(panel).animate({height:h},200);
+                }
+            });
+            $(window).on('resize', function(e) {
+                h = $('.ck-modal .panel ul').outerHeight(true);
+                let panel = $('.ck-modal .panel');
+                if (panel.css('visibility') === 'visible') {
+                    panel.css('height', h);
+                }
+            });
         }
 
         function setChoise(e) {
@@ -133,6 +181,9 @@
                 setCookie(0);
             }
             $('body .ck-modal').remove();
+            $('body').off('mousedown', '.ck-modal .ck-choise a');
+            $('body').off('click', '.accordion');
+            $(window).off('resize');
         }
 
         function addTag() {

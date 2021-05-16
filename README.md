@@ -47,6 +47,15 @@ $(document).cookieKit({
         days: 10,
         path: '/'
     },
+    website: {
+        name: '',
+        url: '',
+        logo: {
+            width: '',
+            align: '',
+            url: ''
+        }
+    },
     modal: {
         hrColor: '#b3b3b3',
         fontColor: '#3c3c3c',
@@ -55,8 +64,8 @@ $(document).cookieKit({
     button: {
         acceptColor: '#0a9919',
         acceptColorHover: '#076212',
-        refuseColor: '#8a0a0a',
-        refuseColorHover: '#550505',
+        refuseColor: '#a40606',
+        refuseColorHover: '#7b0505',
     },
     lang: 'fr'
 });
@@ -65,6 +74,8 @@ $(document).cookieKit({
 `id:` (string) tracking ID
 
 `cookie:` (object) set `name`, `days` and `path` for cookie
+
+`website:` (object) set `name`, `url` and `logo` information for modal
 
 `modal:` (object) set `hrColor`, `fontColor` and `backgroundColor` for modal
 
