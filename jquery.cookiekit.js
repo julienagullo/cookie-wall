@@ -1,5 +1,5 @@
 /**
- * jQuery cookieKit plug-in 1.1.0
+ * jQuery cookieKit plug-in 1.1.1
  * Copyright (c) Avantage Digital
  * Licensed under the MIT license
  *
@@ -23,17 +23,18 @@
             },
             website: {
                 name: '',
+                url: ''
+            },
+            logo: {
                 url: '',
-                logo: {
-                    width: '',
-                    align: '',
-                    url: ''
-                }
+                width: '',
+                align: 'left',
+                margin: '0'
             },
             modal: {
                 hrColor: '#b3b3b3',
                 fontColor: '#3c3c3c',
-                backgroundColor: '#e9e9e9'
+                backgroundColor: '#f7f7f7'
             },
             button: {
                 acceptColor: '#0a9919',
@@ -83,9 +84,7 @@
             'gtag(\'config\', \'' + params.id + '\');' +
             '</script>';
 
-        const logo = params.website.logo.url != '' ? `<div class="logo"><img src="${params.website.logo.url}" alt="Logo"></div>` : '',
-            logoAlign = params.website.logo.align != '' ? params.website.logo.width : 'left',
-            logoWidth = params.website.logo.width != '' ? params.website.logo.width : '0px';
+        const logo = params.logo.url != '' ? `<div class="logo"><img src="${params.logo.url}" alt="Logo"></div>` : '';
 
         const modal = '' +
             '<div class="ck-modal">' +
@@ -108,12 +107,12 @@
             '.ck-modal{display:flex;align-items:center;justify-content:center;position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.7);z-index:999;overflow-y:auto;}' +
             '.ck-window{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;position:absolute;border-radius:5px;background-color:'+ params.modal.backgroundColor +';box-shadow:3px 3px 10px rgba(0,0,0,.3);}' +
             '.ck-content{padding:15px;color:' + params.modal.fontColor + ';}' +
-            `.ck-content .logo{width:100%;text-align:${logoAlign};}` +
-            `.ck-content .logo img{width:${logoWidth};margin:0;}` +
+            `.ck-content .logo{width:100%;text-align:${params.logo.align};}` +
+            `.ck-content .logo img{width:${params.logo.width};margin:${params.logo.margin};}` +
             '.ck-content span{font-weight:500;}' +
             '.ck-content b{font-weight:600;}' +
             '.ck-content ul{margin:0;padding:0 25px 10px;}' +
-            '.ck-content p, li{font-weight:300;margin:1em 0 1.2em;}' +
+            '.ck-content p, li{font-weight:300;margin:1em 0 1.2em!important;}' +
             '.ck-content hr{height:1px;margin:15px 0;border:0;border-top:1px solid ' + params.modal.hrColor + ';}' +
             '.ck-content .accordion{background-color:#e2e2e2;color:#444;font-size:1.2em;font-weight:600;cursor:pointer;padding:10px;width:100%;text-align:left;border:none;outline:none;transition:background-color 0.4s ease-in-out;}' +
             '.ck-content .accordion:after{content:\'\\002B\';color:#777;font-weight:bold;float:right;margin-left:5px;}' +

@@ -49,17 +49,18 @@ $(document).cookieKit({
     },
     website: {
         name: '',
+        url: ''
+    },
+    logo: {
         url: '',
-        logo: {
-            width: '',
-            align: '',
-            url: ''
-        }
+        width: '',
+        align: 'left',
+        margin: '0'
     },
     modal: {
         hrColor: '#b3b3b3',
         fontColor: '#3c3c3c',
-        backgroundColor: '#e9e9e9'
+        backgroundColor: '#f7f7f7'
     },
     button: {
         acceptColor: '#0a9919',
@@ -75,7 +76,9 @@ $(document).cookieKit({
 
 `cookie:` (object) set `name`, `days` and `path` for cookie
 
-`website:` (object) set `name`, `url` and `logo` information for modal
+`website:` (object) set `name`, `url` information for modal
+
+`logo:` (object) set `url`, `width`, `align` and `margin` information for modal
 
 `modal:` (object) set `hrColor`, `fontColor` and `backgroundColor` for modal
 
