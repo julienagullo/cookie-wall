@@ -1,5 +1,5 @@
 /**
- * jQuery cookieKit plug-in 1.1.1
+ * jQuery cookieKit plug-in 1.1.2
  * Copyright (c) Avantage Digital
  * Licensed under the MIT license
  *
@@ -112,7 +112,7 @@
             '.ck-content span{font-weight:500;}' +
             '.ck-content b{font-weight:600;}' +
             '.ck-content ul{margin:0;padding:0 25px 10px;}' +
-            '.ck-content p, li{font-weight:300;margin:1em 0 1.2em!important;}' +
+            '.ck-content p, .ck-content li{font-weight:300;margin:1em 0 1.2em!important;}' +
             '.ck-content hr{height:1px;margin:15px 0;border:0;border-top:1px solid ' + params.modal.hrColor + ';}' +
             '.ck-content .accordion{background-color:#e2e2e2;color:#444;font-size:1.2em;font-weight:600;cursor:pointer;padding:10px;width:100%;text-align:left;border:none;outline:none;transition:background-color 0.4s ease-in-out;}' +
             '.ck-content .accordion:after{content:\'\\002B\';color:#777;font-weight:bold;float:right;margin-left:5px;}' +
@@ -120,14 +120,14 @@
             '.ck-content .accordion.active, .ck-content .accordion:hover{background-color:#d7d7d7;}' +
             '.ck-content .panel{height:0;padding:0 5px;background-color:transparent;border:1px solid #d7d7d7;visibility:hidden;}' +
             '.ck-choise{display:flex;align-items:stretch;justify-content:center;}' +
-            '.btn-refuse, .btn-accept{display:block;width:50%;font-size:1.1em;font-weight:bold;text-transform:uppercase;text-decoration:none;padding:10px 5px;text-align:center;transition:background-color .5s ease;}' +
-            '.btn-refuse{color:#fff;background-color:' + params.button.refuseColor + ';border-radius:0 0 0 3px;}' +
-            '.btn-refuse:hover, .btn-refuse:focus{color:#fff;background-color:' + params.button.refuseColorHover + ';text-decoration:none;}' +
-            '.btn-accept{color:#fff;background-color:' + params.button.acceptColor + ';border-radius:0 0 3px 0;}' +
-            '.btn-accept:hover, .btn-accept:focus{color:#fff;background-color:' + params.button.acceptColorHover + ';text-decoration:none;}' +
-            '@media (max-width: 576px) { .ck-modal .ck-window{width:90%;}.ck-content p, li{font-size:1em;}.ck-content span{font-size:1.5em;}.ck-content .logo{display:none;} }' +
-            '@media (min-width: 576px) { .ck-modal .ck-window{width:70%;}.ck-content p, li{font-size:1.1em;}.ck-content span{font-size:1.6em;}.ck-content .logo{display:block;} }' +
-            '@media (min-width: 769px) { .ck-modal .ck-window{width:50%;}.ck-content p, li{font-size:1.2em;}.ck-content span{font-size:1.7em;} }' +
+            '.ck-choise .btn-refuse, .ck-choise .btn-accept{display:block;width:50%;font-size:1.1em;font-weight:bold;text-transform:uppercase;text-decoration:none;padding:10px 5px;text-align:center;transition:background-color .5s ease;}' +
+            '.ck-choise .btn-refuse{color:#fff;background-color:' + params.button.refuseColor + ';border-radius:0 0 0 3px;}' +
+            '.ck-choise .btn-refuse:hover, .ck-choise .btn-refuse:focus{color:#fff;background-color:' + params.button.refuseColorHover + ';text-decoration:none;}' +
+            '.ck-choise .btn-accept{color:#fff;background-color:' + params.button.acceptColor + ';border-radius:0 0 3px 0;}' +
+            '.ck-choise .btn-accept:hover, .ck-choise .btn-accept:focus{color:#fff;background-color:' + params.button.acceptColorHover + ';text-decoration:none;}' +
+            '@media (max-width: 576px) { .ck-modal .ck-window{width:90%;}.ck-content p, .ck-content li{font-size:1em;}.ck-content span{font-size:1.5em;}.ck-content .logo{display:none;} }' +
+            '@media (min-width: 576px) { .ck-modal .ck-window{width:70%;}.ck-content p, .ck-content li{font-size:1.1em;}.ck-content span{font-size:1.6em;}.ck-content .logo{display:block;} }' +
+            '@media (min-width: 769px) { .ck-modal .ck-window{width:50%;}.ck-content p, .ck-content li{font-size:1.2em;}.ck-content span{font-size:1.7em;} }' +
             '</style>';
 
         let h;
