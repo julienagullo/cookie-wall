@@ -1,8 +1,8 @@
 # jQuery cookieKit
 
-jQuery plugin to display a consent modal for cookies and to add Google Analytics tag: [Demo page](https://avantage.digital/cookiekit/)
+jQuery plugin to display a consent modal for cookies and to add Google Analytics tag: [Demo page](https://jagullo.fr/cookiekit/)
 
-[![license](https://img.shields.io/github/license/avantage-digital/cookieKit.svg)](https://github.com/avantage-digital/cookieKit/LICENSE.md)
+[![license](https://img.shields.io/github/license/julienagullo/cookieKit.svg)](https://github.com/julienagullo/cookieKit/LICENSE.md)
 
 ## Table of contents
 
@@ -16,8 +16,8 @@ jQuery plugin to display a consent modal for cookies and to add Google Analytics
 
 #### Download the release:
 
-- Download [last release](https://github.com/avantage-digital/cookieKit/releases/)
-- Or clone the repo: `git clone https://github.com/avantage-digital/cookieKit.git`
+- Download [last release](https://github.com/julienagullo/cookieKit/releases/)
+- Or clone the repo: `git clone https://github.com/julienagullo/cookieKit.git`
 
 #### Import library plugin:
 
@@ -89,15 +89,13 @@ $(document).cookieKit({
 
 ## Contact
 
-**Avantage Digital**
-
-- Mail: [contact@avantage.digital](contact@avantage.digital)
-- Website: <https://avantage.digital>
-- Github: <https://github.com/avantage-digital>
+- Mail: [contact@jagullo.fr](contact@jagullo.fr?subject=[GitHub]%20cookieKit)
+- Website: <https://jagullo.fr>
+- Github: <https://github.com/julienagullo>
 
 ## Responsibility
 
-Avantage Digital disclaims any responsibility for the use that is made with this tool.
+Author disclaims any responsibility for the use that is made with this tool.
 
 ```text
 Al-Nu’man ibn Bashir reported,
@@ -114,6 +112,6 @@ Sahih al-Bukhārī 52, Sahih Muslim 1599
 
 ## License
 
-Copyright © Avantage Digital
+Copyright © jagullo.fr
 
 Licensed under the MIT license.
