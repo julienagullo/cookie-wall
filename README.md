@@ -1,8 +1,14 @@
-# jQuery cookieKit
+# jQuery cookiesConsent
 
-jQuery plugin to display a consent modal for cookies and to add Google Analytics tag: [Demo page](https://jagullo.fr/cookiekit/)
+jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag: [Demo page](https://jagullo.fr/cookies-consent/)
 
-[![license](https://img.shields.io/github/license/julienagullo/cookieKit.svg)](https://github.com/julienagullo/cookieKit/LICENSE.md)
+[![license](https://img.shields.io/github/license/julienagullo/cookies-consent.svg)](https://github.com/julienagullo/cookies-consent/LICENSE.md)
+
+
+## Preview plugin
+
+![image](https://jagullo.fr/cookies-consent/screen_modal.png?raw=true)
+
 
 ## Table of contents
 
@@ -16,34 +22,34 @@ jQuery plugin to display a consent modal for cookies and to add Google Analytics
 
 #### Download the release:
 
-- Download [last release](https://github.com/julienagullo/cookieKit/releases/)
-- Or clone the repo: `git clone https://github.com/julienagullo/cookieKit.git`
+- Download [last release](https://github.com/julienagullo/cookies-consent/releases/)
+- Or clone the repo: `git clone https://github.com/julienagullo/cookies-consent.git`
 
 #### Import library plugin:
 
 ```html
+
 <script src="jquery.js"></script>
-<script src="jquery.cookiekit.js"></script>
+<script src="jquery.cookies-consent.js"></script>
 ```
 
-#### Launch cookieKit plugin with your tracking Google Analytics ID:
+#### Launch cookiesConsent plugin with your tracking Google Analytics ID:
 
 ```javascript
-$(document).cookieKit({id:'UA-000000-2'});
+$(document).cookiesConsent({id:'UA-000000-2'});
 ```
 
-You can launch `cookitKit` on `$(window)`, `$(document)` or `$('body')` element.
-
+You can launch `cookiesConsent` on `$(window)`, `$(document)` or `$('body')` tag.
 
 #### Available options:
 
 Default options:
 
 ```javascript
-$(document).cookieKit({
+$(document).cookiesConsent({
     id: '',
     cookie: {
-        name: 'cookiekit',
+        name: 'cookies-consent',
         days: 10,
         path: '/'
     },
@@ -60,13 +66,19 @@ $(document).cookieKit({
     modal: {
         hrColor: '#b3b3b3',
         fontColor: '#3c3c3c',
-        backgroundColor: '#f7f7f7'
+        backgroundColor: '#fafafa'
     },
     button: {
         acceptColor: '#0a9919',
         acceptColorHover: '#076212',
         refuseColor: '#a40606',
-        refuseColorHover: '#7b0505',
+        refuseColorHover: '#7b0505'
+    },
+    tag: {
+        cookiePrefix: '',
+        cookieDomain: '',
+        cookieExpires: '',
+        cookieUpdate: ''
     },
     lang: 'fr'
 });
@@ -74,24 +86,27 @@ $(document).cookieKit({
 
 `id:` (string) tracking ID
 
-`cookie:` (object) set `name`, `days` and `path` for cookie
+`cookie:` (object) set `name`, `days` and `path` for the cookies params
 
-`website:` (object) set `name`, `url` information for modal
+`website:` (object) set `name`, `url` information for the modal customization
 
-`logo:` (object) set `url`, `width`, `align` and `margin` information for modal
+`logo:` (object) set `url`, `width`, `align` and `margin` information for the modal
 
-`modal:` (object) set `hrColor`, `fontColor` and `backgroundColor` for modal
+`modal:` (object) set `hrColor`, `fontColor` and `backgroundColor` for the modal
 
-`button:` (object) set `acceptColor`, `acceptColorHover`, `refuseColor` and `refuseColorHover` for buttons background
+`button:` (object) set `acceptColor`, `acceptColorHover`, `refuseColor` and `refuseColorHover` for the consent buttons
 
-`lang:` (string) set `fr` or `en` to display modal in french or english
+`tag:` (object) set `cookiePrefix`, `cookieDomain`, `cookieExpires` and `cookieUpdate` for the tag configuration [more info](https://developers.google.com/analytics/devguides/collection/gtagjs/cookies-user-id)
+
+`lang:` (string) set `fr` or `en` to display the modal in french or english
 
 
 ## Contact
 
-- Mail: [contact@jagullo.fr](contact@jagullo.fr?subject=[GitHub]%20cookieKit)
+- Mail: [contact@jagullo.fr](contact@jagullo.fr?subject=[GitHub]%20cookiesConsent)
 - Website: <https://jagullo.fr>
 - Github: <https://github.com/julienagullo>
+
 
 ## Responsibility
 

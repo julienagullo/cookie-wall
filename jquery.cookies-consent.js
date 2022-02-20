@@ -1,23 +1,23 @@
 /**
- * jQuery cookieKit plug-in 1.1.2
- * Copyright (c) Avantage Digital
+ * jQuery cookiesConsent plugin 1.2.0
+ * Copyright (c) jagullo.fr
  * Licensed under the MIT license
  *
- * jQuery plugin to display a consent modal for cookies and to add Google Analytics tag.
+ * jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag.
  *
- * @author	Avantage Digital
- * @docs	https://github.com/avantage-digital/cookieKit
+ * @author	jagullo.fr
+ * @docs	https://github.com/julienagullo/cookies-consent
  */
 (function($){
 
     "use strict";
 
-    $.fn.cookieKit = function(options) {
+    $.fn.cookiesConsent = function(options) {
 
         const params = $.extend({
             id: '',
             cookie: {
-                name: 'cookiekit',
+                name: 'cookies-consent',
                 days: 10,
                 path: '/'
             },
@@ -34,13 +34,19 @@
             modal: {
                 hrColor: '#b3b3b3',
                 fontColor: '#3c3c3c',
-                backgroundColor: '#f7f7f7'
+                backgroundColor: '#fafafa'
             },
             button: {
                 acceptColor: '#0a9919',
                 acceptColorHover: '#076212',
                 refuseColor: '#a40606',
                 refuseColorHover: '#7b0505',
+            },
+            tag: {
+                cookiePrefix: '',
+                cookieDomain: '',
+                cookieExpires: '',
+                cookieUpdate: ''
             },
             lang: 'fr'
         }, options);
@@ -51,8 +57,8 @@
                 en: `Data collection policy`
             },
             message: {
-                fr: `<b>Des fichiers cookies sont utilisés pour analyser le trafic du site ${params.website.url} via Google Analytics.</b><br><br>Des informations concernant votre navigation et votre utilisation du site sont transmises ${params.website.name.length > 0 ? ' à ' + params.website.name : ''} et seront analysées <b>de façon anonyme</b> pour améliorer les services.`,
-                en: `<b>Cookie files are used to analyze ${params.website.url} website traffic by Google Analytics.</b><br><br>Information about your browsing and use of the website is transmitted ${params.website.name.length > 0 ? ' to ' + params.website.name : ''} and will be analyzed <b>anonymously</b> to improve services.`
+                fr: `<b>Des fichiers cookies sont utilisés pour analyser le trafic du site ${params.website.url} par le service Google Analytics.</b><br><br>Des informations concernant votre navigation et votre utilisation du site sont transmises ${params.website.name.length > 0 ? ' à ' + params.website.name : ''} et seront analysées <b>de façon anonyme</b> pour améliorer nos services. Les données seront transmises aux États-Unis et sont soumises à <a href="https://policies.google.com/privacy?hl=fr-FR" target="_blank" title="Politique de confidentialité de Google" style="color:inherit;font-weight:bold;">la politique de confidentialité de Google</a>.`,
+                en: `<b>Cookie files are used to analyze ${params.website.url} website traffic by Google Analytics service.</b><br><br>Information about your browsing and use of the website is transmitted ${params.website.name.length > 0 ? ' to ' + params.website.name : ''} and will be analyzed <b>anonymously</b> to improve services. The data will be transmitted to the United States and are subject to <a href="https://policies.google.com/privacy?hl=en-US" target="_blank" title="Google privacy policy" style="color:inherit;font-weight:bold;">the Google privacy policy</a>.`
             },
             titleList: {
                 fr: `Liste des cookies`,
@@ -76,12 +82,19 @@
             }
         };
 
+        const tag_params = {}
+        for (const property in params.tag) {
+            if (params.tag[property] !== '') {
+                tag_params[property.replace( /([A-Z])/g, "-$1" ).toLowerCase()] = params.tag[property];
+            }
+        }
+
         const tag = '<script async src="https://www.googletagmanager.com/gtag/js?id=' + params.id + '"></script>' +
             '<script>' +
             'window.dataLayer = window.dataLayer || [];' +
             'function gtag(){dataLayer.push(arguments);}' +
             'gtag(\'js\', new Date());' +
-            'gtag(\'config\', \'' + params.id + '\');' +
+            'gtag(\'config\', \'' + params.id + '\', ' + JSON.stringify(tag_params).replace(/"/g, '\'') + ');' +
             '</script>';
 
         const logo = params.logo.url != '' ? `<div class="logo"><img src="${params.logo.url}" alt="Logo"></div>` : '';
@@ -105,7 +118,7 @@
             '</div>' +
             '<style>' +
             '.ck-modal{display:flex;align-items:center;justify-content:center;position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.7);z-index:999;overflow-y:auto;}' +
-            '.ck-window{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;position:absolute;border-radius:5px;background-color:'+ params.modal.backgroundColor +';box-shadow:3px 3px 10px rgba(0,0,0,.3);}' +
+            '.ck-window{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;position:absolute;border-radius:5px;background-color:'+ params.modal.backgroundColor +';box-shadow:3px 3px 10px rgba(0,0,0,.5);}' +
             '.ck-content{padding:15px;color:' + params.modal.fontColor + ';}' +
             `.ck-content .logo{width:100%;text-align:${params.logo.align};}` +
             `.ck-content .logo img{width:${params.logo.width};margin:${params.logo.margin};}` +
@@ -141,7 +154,7 @@
                     addTag();
                 }
             } else {
-                console.log('No ID defined in cookiekit params.');
+                console.log('No ID defined in the cookiesConsent params.');
             }
         }
 
