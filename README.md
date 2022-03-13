@@ -1,6 +1,6 @@
 # jQuery cookiesConsent
 
-jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag: [Demo page](https://jagullo.fr/cookies-consent/)
+jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag: [Demo page](https://jagullo.fr/cookies/)
 
 [![license](https://img.shields.io/github/license/julienagullo/cookies-consent.svg)](https://github.com/julienagullo/cookies-consent/LICENSE.md)
 
