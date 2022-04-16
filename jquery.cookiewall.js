@@ -1,23 +1,24 @@
 /**
- * jQuery cookiesConsent plugin 1.2.0
+ * jQuery cookieWall plugin 1.2.0
  * Copyright (c) jagullo.fr
  * Licensed under the MIT license
  *
  * jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag.
  *
  * @author	jagullo.fr
+ * @website	https://open-source.jagullo.fr/cookie-wall/
  * @docs	https://github.com/julienagullo/cookies-consent
  */
 (function($){
 
     "use strict";
 
-    $.fn.cookiesConsent = function(options) {
+    $.fn.cookieWall = function(options) {
 
         const params = $.extend({
             id: '',
             cookie: {
-                name: 'cookies-consent',
+                name: 'cookie-wall',
                 days: 10,
                 path: '/'
             },
@@ -154,7 +155,7 @@
                     addTag();
                 }
             } else {
-                console.log('No ID defined in the cookiesConsent params.');
+                console.log('No ID defined in the cookieWall params.');
             }
         }
 

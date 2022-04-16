@@ -1,13 +1,13 @@
-# jQuery cookiesConsent
+# jQuery cookieWall
 
-jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag: [Demo page](https://jagullo.fr/cookies/)
+jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag: [Demo page](https://open-source.jagullo.fr/cookie-wall/)
 
 [![license](https://img.shields.io/github/license/julienagullo/cookies-consent.svg)](https://github.com/julienagullo/cookies-consent/LICENSE.md)
 
 
 ## Preview plugin
 
-![image](https://jagullo.fr/cookies-consent/screen_modal.png?raw=true)
+![image](https://open-source.jagullo.fr/cookie-wall/screen_cookiewall.png?raw=true)
 
 
 ## Table of contents
@@ -22,34 +22,34 @@ jQuery plugin to display a consent modal for cookies and to add the Google Analy
 
 #### Download the release:
 
-- Download [last release](https://github.com/julienagullo/cookies-consent/releases/)
-- Or clone the repo: `git clone https://github.com/julienagullo/cookies-consent.git`
+- Download [last release](https://github.com/julienagullo/cookie-wall/releases/)
+- Or clone the repo: `git clone https://github.com/julienagullo/cookie-wall.git`
 
 #### Import library plugin:
 
 ```html
 
 <script src="jquery.js"></script>
-<script src="jquery.cookies-consent.js"></script>
+<script src="jquery.cookiewall.js"></script>
 ```
 
-#### Launch cookiesConsent plugin with your tracking Google Analytics ID:
+#### Launch cookieWall plugin with your tracking Google Analytics ID:
 
 ```javascript
-$(document).cookiesConsent({id:'UA-000000-2'});
+$(document).cookieWall({id:'UA-000000-2'});
 ```
 
-You can launch `cookiesConsent` on `$(window)`, `$(document)` or `$('body')` tag.
+You can launch `cookieWall` on `$(window)`, `$(document)` or `$('body')` tag.
 
 #### Available options:
 
 Default options:
 
 ```javascript
-$(document).cookiesConsent({
+$(document).cookieWall({
     id: '',
     cookie: {
-        name: 'cookies-consent',
+        name: 'cookie-wall',
         days: 10,
         path: '/'
     },
@@ -103,8 +103,8 @@ $(document).cookiesConsent({
 
 ## Contact
 
-- Mail: [contact@jagullo.fr](contact@jagullo.fr?subject=[GitHub]%20cookiesConsent)
-- Website: <https://jagullo.fr>
+- Mail: [contact@jagullo.fr](contact@jagullo.fr?subject=[GitHub]%20cookieWall)
+- Website: <https://jagullo.fr/>
 - Github: <https://github.com/julienagullo>
 
 
