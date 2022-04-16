@@ -1,0 +1,24 @@
+{
+  "name": "cookie-wall",
+  "version": "1.3.0",
+  "description": "jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag",
+  "main": "jquery.cookiewall.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julienagullo/cookie-wall.git"
+  },
+  "keywords": [
+    "jquery",
+    "cookie-wall",
+    "javascript"
+  ],
+  "author": "jagullo.fr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/julienagullo/cookie-wall/issues"
+  },
+  "homepage": "https://github.com/julienagullo/cookie-wall#readme"
+}

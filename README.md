@@ -22,6 +22,7 @@ jQuery plugin to display a consent modal for cookies and to add the Google Analy
 
 #### Download the release:
 
+- Install via npm: `npm i cookie-wall`
 - Download [last release](https://github.com/julienagullo/cookie-wall/releases/)
 - Or clone the repo: `git clone https://github.com/julienagullo/cookie-wall.git`
 
