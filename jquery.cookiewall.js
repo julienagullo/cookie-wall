@@ -6,7 +6,7 @@
  * jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag.
  *
  * @author	jagullo.fr
- * @website https://open-source.jagullo.fr/cookie-wall/
+ * @website https://open-source.jagullo.fr/cookie-wall
  * @docs	https://github.com/julienagullo/cookie-wall
  */
 (function($){
