@@ -2,12 +2,12 @@
 
 jQuery plugin to display a consent modal for cookies and to add the Google Analytics tag: [Demo page](https://open-source.jagullo.fr/cookie-wall/)
 
-[![license](https://img.shields.io/github/license/julienagullo/cookies-consent.svg)](https://github.com/julienagullo/cookies-consent/LICENSE.md)
+[![license](https://img.shields.io/github/license/julienagullo/cookies-consent.svg)](https://github.com/julienagullo/cookie-wall/LICENSE.md)
 
 
 ## Preview plugin
 
-![image](https://open-source.jagullo.fr/cookie-wall/screen_cookiewall.png?raw=true)
+<img src="https://open-source.jagullo.fr/cookie-wall/screen_cookiewall.png" width="439" height="270">
 
 
 ## Table of contents
