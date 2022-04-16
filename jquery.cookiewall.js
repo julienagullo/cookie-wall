@@ -1,5 +1,5 @@
 /**
- * jQuery cookieWall plugin 1.2.0
+ * jQuery cookieWall plugin 1.3.0
  * Copyright (c) jagullo.fr
  * Licensed under the MIT license
  *
